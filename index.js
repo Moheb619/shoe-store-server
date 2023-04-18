@@ -44,7 +44,7 @@ app.use(express.static(__dirname + "/public/"));
 app.use(
   cors({
     credentials: true,
-    origin: ["http://localhost:3001"],
+    origin: [process.env.CORS_URL ? process.env.CORS_URL : "http://localhost:3001"],
   })
 );
 app.use(cookieParser());
