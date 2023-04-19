@@ -43,3 +43,24 @@ export const getRelatedProducts = async (req, res, next) => {
     next(err);
   }
 };
+export const getCategorizedProducts = async (req, res, next) => {
+  const categorySlug = req.params.category_slug;
+  try {
+    const category = await prisma.category.findMany({
+      where: {
+        slug: categorySlug,
+      },
+      include: {
+        products: {
+          include: {
+            product: true,
+          },
+        },
+      },
+    });
+
+    res.status(200).json(category[0].products);
+  } catch (err) {
+    next(err);
+  }
+};
