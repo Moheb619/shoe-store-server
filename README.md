@@ -1,3 +1,5 @@
+Backend Repository for the Shoe Store Site
+
 ## Summary
 This is a Shoe Store (Ecommerce site) created with Next JS as frontend and Express Js as Backend
 
